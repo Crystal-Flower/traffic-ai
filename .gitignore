@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+models/*.weights
+demo/*.mp4
+demo/*.avi
+outputs/run*/annotated.mp4
+.pytest_cache/
+
+.venv/
+.idea/
+*.log
+

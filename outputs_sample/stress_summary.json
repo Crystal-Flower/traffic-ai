@@ -1,0 +1,233 @@
+{
+  "steps": 45,
+  "video_seconds": 9.0,
+  "wall_seconds": 19.6,
+  "processing_fps_per_approach": 2.3,
+  "approaches": {
+    "N": {
+      "mean_occupancy": 1.281,
+      "peak_occupancy": 2.783,
+      "pct_time_heavy": 82.2,
+      "mean_vehicles_in_zone": {
+        "car": 0.84,
+        "motorcycle": 0.0,
+        "bus": 0.02,
+        "truck": 0.49
+      }
+    },
+    "E": {
+      "mean_occupancy": 0.635,
+      "peak_occupancy": 1.745,
+      "pct_time_heavy": 71.1,
+      "mean_vehicles_in_zone": {
+        "car": 0.4,
+        "motorcycle": 0.0,
+        "bus": 0.0,
+        "truck": 0.31
+      }
+    },
+    "S": {
+      "mean_occupancy": 0.541,
+      "peak_occupancy": 1.5,
+      "pct_time_heavy": 0.0,
+      "mean_vehicles_in_zone": {
+        "car": 0.29,
+        "motorcycle": 0.0,
+        "bus": 0.0,
+        "truck": 0.2
+      }
+    },
+    "W": {
+      "mean_occupancy": 0.557,
+      "peak_occupancy": 1.258,
+      "pct_time_heavy": 0.0,
+      "mean_vehicles_in_zone": {
+        "car": 0.47,
+        "motorcycle": 0.0,
+        "bus": 0.0,
+        "truck": 0.22
+      }
+    }
+  },
+  "final_plan": {
+    "mode": "adaptive",
+    "cycle_s": 100.0,
+    "phases": [
+      {
+        "name": "NS",
+        "green_s": 45,
+        "yellow_s": 3.0,
+        "all_red_s": 2.0
+      },
+      {
+        "name": "EW",
+        "green_s": 45,
+        "yellow_s": 3.0,
+        "all_red_s": 2.0
+      }
+    ],
+    "demand": {
+      "NS": 1.5,
+      "EW": 0.5
+    },
+    "reasons": [
+      "extend NS green 35->45s (+10); demand 1.50",
+      "extend EW green 35->45s (+10); demand 0.50"
+    ]
+  },
+  "plans_computed": 1,
+  "config": {
+    "approaches": [
+      {
+        "name": "N",
+        "source": "demo/highway.avi",
+        "zone": [
+          [
+            0.0,
+            0.3
+          ],
+          [
+            1.0,
+            0.3
+          ],
+          [
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "capacity_pce": 2.0,
+        "offset_frames": 0
+      },
+      {
+        "name": "E",
+        "source": "demo/highway.avi",
+        "zone": [
+          [
+            0.0,
+            0.3
+          ],
+          [
+            1.0,
+            0.3
+          ],
+          [
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "capacity_pce": 2.0,
+        "offset_frames": 90
+      },
+      {
+        "name": "S",
+        "source": "demo/highway.avi",
+        "zone": [
+          [
+            0.0,
+            0.3
+          ],
+          [
+            1.0,
+            0.3
+          ],
+          [
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "capacity_pce": 2.0,
+        "offset_frames": 180
+      },
+      {
+        "name": "W",
+        "source": "demo/highway.avi",
+        "zone": [
+          [
+            0.0,
+            0.3
+          ],
+          [
+            1.0,
+            0.3
+          ],
+          [
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "capacity_pce": 2.0,
+        "offset_frames": 270
+      }
+    ],
+    "density": {
+      "pce": {
+        "car": 1.0,
+        "motorcycle": 0.5,
+        "bus": 3.0,
+        "truck": 3.0
+      },
+      "ema_alpha": 0.25,
+      "heavy_enter": 0.6,
+      "heavy_exit": 0.4,
+      "min_dwell_s": 1.5,
+      "stopped_speed": 0.15,
+      "stopped_fraction_heavy": 0.6,
+      "stopped_occupancy_min": 0.35,
+      "min_tracks_for_speed": 3
+    },
+    "signal": {
+      "phases": [
+        {
+          "name": "NS",
+          "approaches": [
+            "N",
+            "S"
+          ]
+        },
+        {
+          "name": "EW",
+          "approaches": [
+            "E",
+            "W"
+          ]
+        }
+      ],
+      "yellow_s": 3.0,
+      "all_red_s": 2.0,
+      "min_green_s": 10.0,
+      "max_green_s": 60.0,
+      "min_cycle_s": 60.0,
+      "max_cycle_s": 120.0,
+      "fixed_green_s": 35.0,
+      "max_step_s": 10.0,
+      "plan_interval_s": 10.0,
+      "deadband": 0.12
+    },
+    "detector": {
+      "kind": "dnn",
+      "conf": 0.25,
+      "model": "yolov8n.pt",
+      "imgsz": 640,
+      "models_dir": "models"
+    },
+    "stride": 3,
+    "fps_fallback": 25.0
+  },
+  "note": "STRESS DEMO: zone capacity set to 2 PCE so a sparse clip triggers HEAVY"
+}

@@ -1,0 +1,44 @@
+# Example: a four-arm junction with one CCTV camera per approach.
+# Replace each `source` with the camera's RTSP/HTTP URL (or a video file, or a webcam index).
+# Zones are polygons in normalized image coordinates (0..1), drawn over the road lanes that
+# feed the junction. Check them with:  python -m traffic_ai preview-zones --config configs/junction_example.yaml
+stride: 2                  # process every 2nd frame
+detector:
+  kind: dnn                # "dnn" needs no PyTorch; "ultralytics" (YOLOv8) is more accurate
+  conf: 0.25
+  model: yolov8n.pt
+approaches:
+  - name: N
+    source: rtsp://CAMERA_N/stream
+    zone: [[0.10, 0.35], [0.90, 0.35], [1.00, 1.00], [0.00, 1.00]]
+    capacity_pce: 12       # CALIBRATE: PCE units that fill this zone bumper-to-bumper
+  - name: E
+    source: rtsp://CAMERA_E/stream
+    zone: [[0.10, 0.35], [0.90, 0.35], [1.00, 1.00], [0.00, 1.00]]
+    capacity_pce: 12
+  - name: S
+    source: rtsp://CAMERA_S/stream
+    zone: [[0.10, 0.35], [0.90, 0.35], [1.00, 1.00], [0.00, 1.00]]
+    capacity_pce: 12
+  - name: W
+    source: rtsp://CAMERA_W/stream
+    zone: [[0.10, 0.35], [0.90, 0.35], [1.00, 1.00], [0.00, 1.00]]
+    capacity_pce: 12
+density:
+  pce: {car: 1.0, motorcycle: 0.5, bus: 3.0, truck: 3.0}   # ASSUMED weights: use your city's standard
+  heavy_enter: 0.60
+  heavy_exit: 0.40
+  min_dwell_s: 3.0
+signal:
+  phases:
+    - {name: NS, approaches: [N, S]}
+    - {name: EW, approaches: [E, W]}
+  yellow_s: 3
+  all_red_s: 2
+  min_green_s: 10
+  max_green_s: 60
+  min_cycle_s: 60
+  max_cycle_s: 120
+  fixed_green_s: 35
+  max_step_s: 10
+  plan_interval_s: 10

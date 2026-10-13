@@ -1,0 +1,87 @@
+{
+  "balanced": {
+    "fixed": {
+      "avg_delay_s_mean": 20.816598781674593,
+      "avg_delay_s_std": 0.5780945947158778,
+      "max_queue_mean": 13.5,
+      "served_mean": 1711.4,
+      "arrivals_mean": 1723.45
+    },
+    "adaptive": {
+      "avg_delay_s_mean": 19.36256187810077,
+      "avg_delay_s_std": 0.6717927509083772,
+      "max_queue_mean": 12.95,
+      "served_mean": 1714.85,
+      "arrivals_mean": 1723.45
+    },
+    "delay_change_pct": -6.984987887905347
+  },
+  "moderate_skew": {
+    "fixed": {
+      "avg_delay_s_mean": 23.32931390333665,
+      "avg_delay_s_std": 1.2399785974873874,
+      "max_queue_mean": 17.0,
+      "served_mean": 1852.4,
+      "arrivals_mean": 1869.85
+    },
+    "adaptive": {
+      "avg_delay_s_mean": 21.142055023330226,
+      "avg_delay_s_std": 0.6428650314925597,
+      "max_queue_mean": 15.35,
+      "served_mean": 1858.2,
+      "arrivals_mean": 1869.85
+    },
+    "delay_change_pct": -9.375581678351864
+  },
+  "ns_peak": {
+    "fixed": {
+      "avg_delay_s_mean": 129.88653287422892,
+      "avg_delay_s_std": 28.302216140489566,
+      "max_queue_mean": 86.85,
+      "served_mean": 2030.7,
+      "arrivals_mean": 2169.15
+    },
+    "adaptive": {
+      "avg_delay_s_mean": 22.809326116393393,
+      "avg_delay_s_std": 0.8398767403303481,
+      "max_queue_mean": 18.9,
+      "served_mean": 2154.8,
+      "arrivals_mean": 2169.15
+    },
+    "delay_change_pct": -82.4390368950105
+  },
+  "shifting_peak": {
+    "fixed": {
+      "avg_delay_s_mean": 84.55199882940397,
+      "avg_delay_s_std": 15.6067807996248,
+      "max_queue_mean": 58.85,
+      "served_mean": 2101.55,
+      "arrivals_mean": 2169.8
+    },
+    "adaptive": {
+      "avg_delay_s_mean": 32.36926510087229,
+      "avg_delay_s_std": 3.744365583255408,
+      "max_queue_mean": 32.05,
+      "served_mean": 2147.75,
+      "arrivals_mean": 2169.8
+    },
+    "delay_change_pct": -61.71673579688871
+  },
+  "north_surge": {
+    "fixed": {
+      "avg_delay_s_mean": 48.03564091016673,
+      "avg_delay_s_std": 10.252072851069203,
+      "max_queue_mean": 76.2,
+      "served_mean": 1833.75,
+      "arrivals_mean": 1847.2
+    },
+    "adaptive": {
+      "avg_delay_s_mean": 29.97628228106413,
+      "avg_delay_s_std": 5.044961344273819,
+      "max_queue_mean": 41.05,
+      "served_mean": 1837.2,
+      "arrivals_mean": 1847.2
+    },
+    "delay_change_pct": -37.595748254668
+  }
+}
